@@ -13,3 +13,6 @@ test:
   <<: *default
   database: test031117_test
 
+production:
+  <<: *default
+  database: test031117_production
