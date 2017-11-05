@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  respond_to :js
 
   def index
     @message = Message.new
@@ -6,17 +7,21 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(message_params)
+    # @message = Message.new(message_params)
+    @message = Message.create(message_params)
+    # respond_to do |format|
+    #   if @message.save
+    #    format.html {render 'index'}
+    #    format.js
+    # # #   else
+    # # #     format.html { render :new }
+    # # #     format.json { render json: @message.errors, status: :unprocessable_entity }
+    #   end
+    # end
+  end
 
-    respond_to do |format|
-      if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
-        format.json { render :show, status: :created, location: @message }
-      else
-        format.html { render :new }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
-    end
+  def destroy_all
+    Message.destroy_all
   end
 
   private

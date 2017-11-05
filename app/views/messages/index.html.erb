@@ -1,18 +1,19 @@
 <div class="container">
-<div class="box1">
-  <%= render 'form' %>
-</div>
+  <div id="message_form" class="box1">
+    <%= render 'form' %>
+  </div>
 
-<div class="box2">
-  <h3>N запросов</h3>
-
-      <div class="messagebox">
-      <% @messages.each do |message| %>
-          <%= message.text %><br>
-      <% end %>
+  <div class="box2">
+    <h3>N запросов</h3>
+      <div id="messages" class="messagebox">
+        <%= render 'messages' %>
       </div>
+      <div class='right'>
+        <small>
+          <%= link_to "Очистить", "/messages/destroy_all", remote: true %>
+        </small>
+      </div>
+  </div>
 </div>
-</div>
-
 <br>
 
