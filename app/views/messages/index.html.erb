@@ -4,15 +4,17 @@
   </div>
 
   <div class="box2">
-    <h3>N запросов</h3>
-      <div id="messages" class="messagebox">
-        <%= render 'messages' %>
-      </div>
-      <div class='right'>
-        <small>
-          <%= link_to "Очистить", "/messages/destroy_all", remote: true %>
-        </small>
-      </div>
+    <div id="requests">
+      <%= render 'requests' %>
+    </div>
+    <div id="messages" class="messagebox">
+      <%= render 'messages' %>
+    </div>
+    <div class='right'>
+      <small>
+        <%= link_to "Очистить", "/messages/destroy_all", remote: true %>
+      </small>
+    </div>
   </div>
 </div>
 <br>
